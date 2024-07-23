@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeón América Pokémon Extinción</title>
+    <style>
+        body {
+                font-family: Arial, sans-serif;
+                font-size: large;
+                margin: 0;
+                padding: 0;
+                background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEiTtHr_E1pf59YEdyPTQXlburSibiYNgsWdFQEFs8ZU09qZsFxFr2YCC7kMtS5KGYL1bFZ-k0buPJHh87cXGhdPLaWt92cz4rWdVvdrG6QwZ9_pf51i-YvO9q8O4YIWfZBEDRzrONZTmDln-FZSBCCFsrfX9-i5dtXUHFchyFAR2lH6OgUYus9TRBjfcm0Q'); /* Fondo de pantalla */
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                background-color: rgba(240, 240, 240, 0.8); /* Fondo con opacidad */
+                scroll-behavior: smooth; /* Desplazamiento suave */
+            }
+
+            header {
+                background-color: rgba(193, 196, 27, 0.8); /* Encabezado con opacidad */
+                color: #fff;
+                padding: 2%;
+                text-align: center;
+                transition: background-color 0.3s ease; /* Transición de color */
+            }
+
+            header:hover {
+                background-color: rgba(24, 204, 33, 0.8); /* Cambio de color al pasar el cursor */
+            }
+    
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            nav ul li {
+                display: inline;
+                margin-right: 2%;
+                transition: transform 0.3s ease; /* Transición de transformación */
+            }
+            
+            nav ul li:hover {
+                transform: scale(1.1); /* Efecto de escala al pasar el cursor */
+            }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease; /* Transición de color */
+            }
+            
+            nav ul li a:hover {
+                color: #ffd700; /* Cambio de color al pasar el cursor */
+            }
+    
+            .container{
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }
+
+            .llave {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+  
+            .partido {
+                display: flex;
+                align-items: center;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+  
+            .logo-equipo {
+                flex: 1;
+                text-align: center;
+            }
+
+            .logo-equipo img {
+                width: auto;/* Ajusta el tamaño máximo de los logos según sea necesario */
+                height: 200px;
+                object-fit: cover;
+            }
+  
+            .vs {
+                flex: 0 0 auto;
+                margin: 0 20px;
+            }
+  
+            .vs h2 {
+                font-size: 24px;
+                margin: 0;
+            }
+    
+            aside{
+                background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+                border-radius: 5px; /* Bordes redondeados */
+                padding: 10px; /* Relleno interno */
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+                margin-top: 20px; /* Margen superior */
+                width: 40%;
+                height: 100%;
+            }
+
+            main {
+                padding: 2%;
+                width: 100%;
+                height: 100%;
+            }
+    
+            #video-container {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            video {
+                width: 100%;
+                height: auto;
+            }
+    
+            section {
+                margin-bottom: 3%;
+                background-color: rgba(255, 255, 255, 0.8); /* Sección con opacidad */
+                border-radius: 10px;
+                padding: 2%;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease; /* Transición de transformación */
+            }
+
+            section:hover {
+                transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+            }
+    
+            section h2 {
+                color: #333;
+                border-bottom: 2px solid #333;
+                padding-bottom: 1%;
+                margin-bottom: 2%;
+            }
+            
+            section p {
+                color: black;
+            }
+    
+            .container-carrusel {
+                width: 100%;
+                overflow: hidden;
+                margin-top: 20px;
+            }
+    
+            .carrusel {
+                display: flex;
+                transition: transform 0.5s ease;
+            }
+    
+            .carrusel-item {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 100%;
+                margin-right: 20px;
+            }
+            
+            footer {
+                background-color: rgba(193, 196, 27, 0.8); /* Pie de página con opacidad */
+                color: #fff;
+                text-align: center;
+                padding: 1%;
+                bottom: 0;
+                width: 100%;
+            }
+    
+            footer:hover{
+                background-color: rgba(24, 204, 33, 0.8);
+            }
+    
+            footer a {
+                color: #fff; /* Color del texto */
+                text-decoration: none; /* Quita el subrayado */
+                transition: color 0.3s ease; /* Transición de color */
+            }
+    
+            footer a:hover {
+                color: #ffd700; /* Cambio de color al pasar el cursor */
+            }
+            
+            /* Estilos para los iconos de contacto */
+            .contact-info i {
+                margin-right: 10px;
+            }
+            
+            @keyframes firework {
+                0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+                50% { width: 0.5vmin; opacity: 1; }
+                100% { width: var(--finalSize); opacity: 0; }
+            }
+
+
+            /* @keyframes fireworkPseudo {
+            0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
+            50% { width: 0.5vmin; opacity: 1; }
+            100% { width: var(--finalSize); opacity: 0; }
+            }
+            */
+
+            .firework,
+            .firework::before,
+            .firework::after
+            {
+                --initialSize: 0.5vmin;
+                --finalSize: 45vmin;
+                --particleSize: 0.2vmin;
+                --color1: yellow;
+                --color2: khaki;
+                --color3: white;
+                --color4: lime;
+                --color5: gold;
+                --color6: mediumseagreen;
+                --y: -30vmin;
+                --x: -50%;
+                --initialY: 60vmin;
+                content: "";
+                animation: firework 2s infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, var(--y));
+                width: var(--initialSize);
+                aspect-ratio: 1;
+                background: 
+    
+                /*
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,    
+                */
+    
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    
+                /* bottom right */
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    
+                /* bottom left */
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    
+                /* top left */
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    
+                /* top right */
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
+                ;
+                background-size: var(--initialSize) var(--initialSize);
+                background-repeat: no-repeat;
+            }
+
+            .firework::before {
+                --x: -50%;
+                --y: -50%;
+                --initialY: -50%;
+                /*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
+                transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+                /*   animation: fireworkPseudo 2s infinite; */
+            }
+
+
+            .firework::after {
+                --x: -50%;
+                --y: -50%;
+                --initialY: -50%;
+                /*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
+                transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+                /*   animation: fireworkPseudo 2s infinite; */
+            }
+
+            .firework:nth-child(2) {
+                --x: 30vmin;
+            }
+
+            .firework:nth-child(2),
+            .firework:nth-child(2)::before,
+            .firework:nth-child(2)::after {
+                --color1: pink;
+                --color2: violet;
+                --color3: fuchsia;
+                --color4: orchid;
+                --color5: plum;
+                --color6: lavender;  
+                --finalSize: 40vmin;
+                left: 30%;
+                top: 60%;
+                animation-delay: -0.25s;
+            }
+
+            .firework:nth-child(3) {
+                --x: -30vmin;
+                --y: -50vmin;
+            }
+
+            .firework:nth-child(3),
+            .firework:nth-child(3)::before,
+            .firework:nth-child(3)::after {
+                --color1: cyan;
+                --color2: lightcyan;
+                --color3: lightblue;
+                --color4: PaleTurquoise;
+                --color5: SkyBlue;
+                --color6: lavender;
+                --finalSize: 35vmin;
+                left: 70%;
+                top: 60%;
+                animation-delay: -0.4s;
+            }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Copa América Pokémon Extinción</h1>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            <section id="inicio">
+                <h2>Campeón de Copa América Pokémon Extinción: Ecuador</h2>
+                <div class="firework"></div>
+                <div class="partido">
+                    <div class="logo-equipo">                   
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjtN04ys0kGSXvzMEStP3IzM0ogXJgzhqnIJwn_CkqSwa3Uv6BpOENNve7BwjM-yS3dFcwO1WQd0XEsOz3YGgcN-58QCggwTBGiapu61SdQ10G96XGtRGPggWhw6Qkwbl2AhAz_BRyEBJ_b9gMRzkDVut3cyosjSB5E35ncnY8RgeddWUC23psQ8fef8b66" alt="Logo Equipo Y">
+                        <div class="firework"></div>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJUv6KrEBUcTN46tw1UjObVfYcI5J85GdUSXGVlQBKHc0jBIqCjcM3fH-yS77tu7el5YZg0_1QZWmZ_I_aTQR4lTtBa56sEOZEhn3ItjmmaxEhIwqpSecBxsODE0v93PuU88T5-Jjv-6Q/s640/Copa-America-trofeo-sin-fondo.png" alt="copa">
+                        <div class="firework"></div>
+                    </div>
+                </div>
+                <div class="firework"></div>
+                <h2>Historial</h2>
+                <h4>3 Victorias 5 Empates 0 Derrotas</h4>
+                <h4>Victorias:</h4>
+                <p>Sudamérica (2-4), Perú (1-4) y México (1-4)</p>
+                <h4>Empates</h4>
+                <p>Centroamérica, España, Colombia, México y Perú</p>
+            </section>
+            <section id="inicio">
+                <h2>Equipo Campeón</h2>
+                <div class="partido">
+                    <div class="logo-equipo">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjSF0UbL0r-4_uPbBohYZ5YCzQLIHS0kSOJItcTkDjl7dJKIuXT2kAGu9uAZskk2NU6HZ-q9bPD9kGgoJNsxxOmBOF__Uv4NEk66lQOEwzxyryZMeBfYpF7pX0lwK5OqS0QmmiaV-1iRWCkGf43CArCayQvHkUt62JXnU7mOANb4pM0J0QtxgATAgvF5xYS" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgHiI8I2PvM2uKJbfYaLgWITLWiBC2fk5Z2u7mIiAyyZbJjlOLxj34lnKGXMAIJUZlrx4E2sMN4kl3ynCqMvd0C7DgI0Mtv60gDf8EtU835xAKGoZhaEiiY7IXVdY46y1cO7kE_m_LGhwHS-foKjExPYzCRvMCPODvxueLCz-LObjZTyR4AuIVmUtVANtR6" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg_AjzV0mqbJC_mF44bPkNYkvVFeEDL82q_y_q9e-qXW130Tc46PiVEw2K_tsrIKyFycktSXmYtgPRDSbq1bxi91oEC-kjSRFbiwDOkCb8i9fK2Dij4YcpFgA_ssMLkdqXswiDKnT7mXx_KzOjYN_-7Dc7yj1v7WL4mHJ3zUtd3nfArs9W-2rKsDS57_T1L" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgAUxTAXfjElOMTjd9SD0VdZ2mAsbD-nqwAR784vPPX4C_Ms0LG6UCIQAJSiuI1po9vDyhuKrMUCLc0w1_Bs6loLpCmrM13yXag90RW3vtjKJnTsCpaAer1oQVsoUW7bvkj7M2WseiLKT3azQNyJi5raN9G9wVQV2X7LpYt4jqG6ZfrrdTYo4vDg7gJE2Ej" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgVRMWBCxg87RqEE-SZAqFSkdNxKZNQwMR-lrj-yGoEBNHkUQqDReT6h41uWdere3oUKkJ-YKNVyqojgfbfSvD_cKSYodjIh-mLe3V7Kis-uHPZ7z8MY0hgPZEiCvG2w7hjK8X4j5RPhB68Nac6QMAxMenNouJ_lpSy3EVOrTQxHAHMJVBjA4pa9H0m-H0c" alt="alineación">
+                    </div>
+                    <div class="logo-equipo">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgSemkHV5wLiayxg6hkDLaBDFQjz2EXQE2EDoitI3PTVNWmh34Ys8FrjVJVit7B2yxnBwjJmB8TJhaXxT3Z7EbYQlqWlFZ57OrNv8-pFl0Pc_ixA0D1tMq7fRWri5UMGTinYp0L49T-r196oDcTaD4GWJLobjpCijAY-7TuR8PO9jZPq2yMooaeDo8JRq-k" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiUtZ4E5ny-XOtEaRMXcuGQ015sTwF_5Gnkw385oi8MvMmjphhFwgSfKshA509TSTVJ677wbEiGbREv9v3JV72MAJOq4SQUdrkrGSf8Pchj7PZ0K1syOa-JTRP_mCdFD2lxPjGQIKkGdGs81MuiLN0wVMhucdQ0YKjLfG-X49K9KftyroAQDmZowK_hLdd2" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjD2F6DS1KvluItX2kxag_7_b0pLqpO0D34EOt6O8FlHZy2EKS56SPmO6A1fuS_9-bEiWmfy4vgKFgj0X8nMwZKiGwHoLnNNeuiAa4EV_nAlcBr_Hz4ZXWOFQJ_eIrxSjKJIl2vv03mGoAJx8FjGNTINf57852D5jip1nYZ7XsihLbbyXtG8wOkSAIppvEZ" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgCbqWuxv2Ph4y0MfjISdRqCsHmrqyIL6N1z6-3BZeBcPEVqZMZ9L-nutPAut30a8-XKzsQGC81aNwtlU8-kIZUcdn6G_P3mmuf7c0CsHblIKcyjVSy5I8ZBuq7K3NL93vdtGVuqNRm5uRQodxbNB60ZjhFmYDXazvCJ_yimmaHsFV1iSt4gqpGY_25fCzr" alt="alineación">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEitX_ZIH4hFsR_X6Z3Q3mt9Wz9f-cTDMRs4eS81Pn3vniw6WS_cPD-oa0Ax_EAs6sgMjdCBB73sKpMoFaXLlfD1MwHogUhR2zuXctU1xG0jn0dV5jlqTdjvDKYNTej-KAN4KpuwyCF7XUsMyoNl4pCbQwcGhuGjE5ol9Qm0ccDf2BLbDUA2BVbwGVJ7v9AZ" alt="alineación">
+                    </div>
+                </div>
+            </section>
+            <section id="inicio">
+                <div class="logo-equipo">
+                    <h2>Campeón de goleo</h2>
+                    <h3>Alvaro Valenzuela</h3>
+                    <p>Anotaciones: 6</p>                
+                    <p>Partidos jugasos: 7</p>                
+                    <p>Efectividad: 85.71%</p>                
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVCqBvhqna6UpOfYtjtPfmm4yn3e85NV140md4QDyW444lZTldVWBkXY-KsZ8qc7i-13unjd3g_zytP6j1TlIWOk2hu3cy1jKY_eu93Y4FhUtiG2A-n2-m4_LPqTQ9qZbeX5pNL8vB_LnXBFj7GVqlm_mq2_jv_Xg5Bj8XiXtMAbsh9HQyhbKnYmIxlME6" alt="goleador">
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>Únete al grupo en: <a href="https://www.facebook.com/share/maVUNCfV7ZzDuK6e/?mibextid=A7sQZp"><i class="fab fa-facebook"></i></a></p>
+    </footer>
+</body>
+</html>
